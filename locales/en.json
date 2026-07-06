@@ -1,0 +1,17 @@
+{
+  "cooldown": "you gained your pears {time_info}! ⏳\ncome back after {time_left}!\n\npears amount: {amount}",
+  "got_pears": "you got {change} pears!\npears amount: {amount}",
+  "lost_all": "you lost all of your pears :(",
+  "lost_pears": "you lost {change} pears :( \npears amount: {amount}",
+  "no_change": "you did not get any pears :( \npears amount: {amount}",
+  "no_data": "There is no data in the DataBase! No one played!",
+  "leaderboard_title": "🏆 THE MOST PEARS LEADERBOARD 🏆\n\n",
+  "leaderboard_line": "{medal} {username} — {amount} pears \n",
+  "lang_changed": "Language successfully changed to English! 🇬🇧",
+  "minute": "minute", 
+  "minutes": "minutes",
+  "second": "second", 
+  "seconds": "seconds",
+  "time_ago": "{int_mins} {word_min} ago",
+  "time_now": "right now"
+}
