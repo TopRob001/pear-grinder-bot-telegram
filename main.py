@@ -19,7 +19,7 @@ from aiogram.enums import ParseMode
 
 import json
 
-# load data from .env (TOKEN rn)
+# load data from .env
 load_dotenv()
 
 # INIT sqlite data base
