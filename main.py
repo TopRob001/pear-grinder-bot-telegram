@@ -80,12 +80,12 @@ def getLeaders():
 
     return result
 
+# class for userdata
 class UserData(NamedTuple):
     username: str
     pears_amount: int
     last_date: float
     language: str
-
 
 # load user data from sql database
 def loadUserData(id: int) -> UserData | None:
@@ -104,7 +104,10 @@ def loadUserData(id: int) -> UserData | None:
         return
     
     return UserData(
-        result[0], result[1], result[2], result[3]
+        username=str(result[0]),
+        pears_amount=int(result[1]),
+        last_date=float(result[2]),
+        language=str(result[3])
     )
 
 
