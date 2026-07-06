@@ -110,7 +110,6 @@ def loadUserData(id: int) -> UserData | None:
         language=str(result[3])
     )
 
-
 # write user data to sql database
 def writeData(id: int, data: UserData):
 
@@ -133,7 +132,7 @@ def writeData(id: int, data: UserData):
     con.commit()
     con.close()
 
-# main code for growing
+# main code for getting pears
 @dp.message(CommandStart())
 async def getPears(msg: Message):
     userId: int | None = msg.from_user.id if msg.from_user else None
@@ -202,6 +201,7 @@ async def getPears(msg: Message):
     
     writeData(userId, UserData(username, pears_amount, currentTime, lang))
 
+# leaderboard command
 @dp.message(Command("leaders"))
 async def leaders(msg: Message):
     userId: int | None = msg.from_user.id if msg.from_user else None
@@ -233,6 +233,7 @@ async def leaders(msg: Message):
 
     await msg.answer(text=top_text, parse_mode=ParseMode.HTML)
 
+# handler for changing language
 @dp.message(Command("lang"))
 async def change_lang(msg: Message):
     userId: int | None = msg.from_user.id if msg.from_user else None
