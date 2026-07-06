@@ -6,7 +6,7 @@
   "no_change": "you did not get any pears :( \npears amount: {amount}",
   "no_data": "There is no data in the DataBase! No one played!",
   "leaderboard_title": "🏆 THE MOST PEARS LEADERBOARD 🏆\n\n",
-  "leaderboard_line": "{medal} {username} — {amount} pears \n",
+  "leaderboard_line": "{medal} <b>{username}</b> ({amount}) pears\n",
   "lang_changed": "Language successfully changed to English! 🇬🇧",
   "minute": "minute", 
   "minutes": "minutes",

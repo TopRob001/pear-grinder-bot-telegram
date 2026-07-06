@@ -6,7 +6,7 @@
   "no_change": "Вы не нашли ни одной груши... \nГруш в корзине: {amount}",
   "no_data": "В базе данных еще нет игроков! Станьте первым!",
   "leaderboard_title": "🏆 ТАБЛИЦА ЛИДЕРОВ (ГРУШИ) 🏆\n\n",
-  "leaderboard_line": "{medal} {username} — {amount} груш \n",
+  "leaderboard_line": "{medal} <b>{username}</b> ({amount} груш)\n",
   "lang_changed": "Язык успешно изменен на Русский! 🇷🇺",
   "minute": "минуту", 
   "minutes": "минут",

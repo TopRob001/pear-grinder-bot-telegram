@@ -214,7 +214,7 @@ async def leaders(msg: Message):
             medal=medal, username=safe_username, amount=safe_amount
         )
 
-    await msg.answer(text=top_text, parse_mode=ParseMode.MARKDOWN_V2)
+    await msg.answer(text=top_text, parse_mode=ParseMode.HTML)
 
 @dp.message(Command("lang"))
 async def change_lang(msg: Message):
@@ -238,7 +238,7 @@ async def change_lang(msg: Message):
         last_time = 0.0
 
     writeData(userId, (username, pears_amount, last_time, new_lang))
-    await msg.answer(text=LOCALIZATION[new_lang]["lang_changed"])
+    await msg.answer(text=LOCALIZATION[new_lang]["lang_changed"], parse_mode=ParseMode.HTML)
 
 
 
