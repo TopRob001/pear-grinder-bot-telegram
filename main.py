@@ -22,8 +22,6 @@ import json
 # load data from .env
 load_dotenv()
 
-#test comment
-
 # INIT sqlite data base
 con = sqlite3.connect("pears.db")
 cur = con.cursor()
