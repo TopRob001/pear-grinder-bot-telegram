@@ -6,6 +6,8 @@ from aiogram.types.bot_command import BotCommand
 from aiogram.types import Message
 from dotenv import load_dotenv
 
+from typing import NamedTuple
+
 import time
 
 import random
@@ -37,8 +39,6 @@ cur.execute(
 )
 con.commit()
 con.close()
-
-
 
 TOKEN = os.getenv("TOKEN")
 
@@ -80,9 +80,15 @@ def getLeaders():
 
     return result
 
+class UserData(NamedTuple):
+    username: str
+    pears_amount: int
+    last_date: float
+    language: str
+
 
 # load user data from sql database
-def loadUserData(id: int) -> tuple[str, int, str | float, str] | None:
+def loadUserData(id: int) -> UserData | None:
     con = sqlite3.connect("pears.db")
     cur = con.cursor()
 
@@ -92,7 +98,15 @@ def loadUserData(id: int) -> tuple[str, int, str | float, str] | None:
     )
     result = cur.fetchone()
     con.close()
-    return result
+    
+
+    if result is None:
+        return
+    
+    return UserData(
+        result[0], result[1], result[2], result[3]
+    )
+
 
 # write user data to sql database
 def writeData(id: int, data: tuple[str, int, float, str]):
@@ -100,7 +114,7 @@ def writeData(id: int, data: tuple[str, int, float, str]):
     username: str = data[0]
     pears_amount: int = data[1]
     today_date: float = data[2]
-    lang: str = data[3]  # <--- Достаем язык из четвертого индекса
+    lang: str = data[3]
 
     con = sqlite3.connect("pears.db")
     cur = con.cursor()
