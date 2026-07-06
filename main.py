@@ -112,12 +112,12 @@ def loadUserData(id: int) -> UserData | None:
 
 
 # write user data to sql database
-def writeData(id: int, data: tuple[str, int, float, str]):
+def writeData(id: int, data: UserData):
 
-    username: str = data[0]
-    pears_amount: int = data[1]
-    today_date: float = data[2]
-    lang: str = data[3]
+    username: str = data.username
+    pears_amount: int = data.pears_amount
+    today_date: float = data.last_date
+    lang: str = data.language
 
     con = sqlite3.connect("pears.db")
     cur = con.cursor()
@@ -200,7 +200,7 @@ async def getPears(msg: Message):
     else:
         await msg.answer(text=LOCALIZATION[lang]["no_change"].format(amount=pears_amount))
     
-    writeData(userId, (username, pears_amount, currentTime, lang))
+    writeData(userId, UserData(username, pears_amount, currentTime, lang))
 
 @dp.message(Command("leaders"))
 async def leaders(msg: Message):
@@ -254,7 +254,7 @@ async def change_lang(msg: Message):
         pears_amount = 10
         last_time = 0.0
 
-    writeData(userId, (username, pears_amount, last_time, new_lang))
+    writeData(userId, UserData(username, pears_amount, last_time, new_lang))
     await msg.answer(text=LOCALIZATION[new_lang]["lang_changed"], parse_mode=ParseMode.HTML)
 
 
