@@ -67,6 +67,7 @@ python main.py
 
 * `/start` — Try your luck to grow new pears or lose your current ones. New users are automatically registered with a starter balance of 10 pears.
 * `/leaders` — Check the global leaderboard displaying the top 10 players with the most pears.
+* `/lang (en/ru)` – Change the language for the bot (by default English)
 
 ---
 
